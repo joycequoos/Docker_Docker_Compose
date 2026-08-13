@@ -1,94 +1,55 @@
-# Containers
+# Docker Compose
 
-[← Voltar a Docker](https://github.com/joycequoos/Docker/blob/main/README.md)
+Docker Compose é uma ferramenta que facilita a definição e o gerenciamento de ambientes de conteineres Docker. Ele permite que você defina e configure um aplicativo multi-contêiner em um arquivo YAML ('docker-compose.yml'), especificando os serviços, redes e volumes necessários para sua aplicação. Com um único comando ('docker-compose up'), você pode iniciar e orquestrar todos os contêineres definidos no arquivo, simplicando o desenvolvimento e a implatação de aplicativos complexos.
 
-Comandos essenciais para gerenciar contêineres no dia a dia: nomear, ver logs, mapear portas, executar comandos internos, iniciar, parar e remover contêineres.
+- Verificando a versão do docker compose na maquina via prompt de comando.
 
-## Índice
+<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/01_Verificar_Docker_Version.png">
 
-- [Nomeando contêineres](#nomeando-contêineres)
-- [Verificando o log de eventos](#verificando-o-log-de-eventos)
-- [Publicando portas de acesso](#publicando-portas-de-acesso)
-- [Executando comandos em contêineres](#executando-comandos-em-contêineres)
-- [Iniciando e parando contêineres](#iniciando-e-parando-contêineres)
-- [Removendo contêineres](#removendo-contêineres)
-- [Próximos passos](#próximos-passos)
+### 01. Limpando a maquina local
 
----
+<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/02_Limpeza_Geral.png">
 
-## Nomeando contêineres
+### 02. Download projeto Netflix
 
-1. Listar os contêineres em execução na máquina. No prompt de comando, com o Docker em execução:
+- O docker compose é um arquivo que contem as informações de todos os conteiners que vão subir, onde vamos criar um conteiner para backend, um segundo conteiner para frontend e um terceiro conteiner para Banco de Dados.
 
-   ```
-   docker ps
-   ```
+<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/03_Compose_Back_Front.png">
 
-   [![Lista de contêineres](https://github.com/joycequoos/Docker_Containers/raw/main/img/01_Lista_Containers.png)](https://github.com/joycequoos/Docker_Containers/blob/main/img/01_Lista_Containers.png)
+<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/04_Terceiro_Conteiner.png">
 
-2. Criar um contêiner a partir de uma imagem (em background) com um nome específico.
+02.01 Rodando o projeto Netflix, acessar o diretorio do projeto netflix pelo terminal, e colocar o comando docker-compose up
 
-   [![Nomeando contêineres](https://github.com/joycequoos/Docker_Containers/raw/main/img/02_Nomeando_Conteiners.png)](https://github.com/joycequoos/Docker_Containers/blob/main/img/02_Nomeando_Conteiners.png)
+<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/05_Docker_Compose_Up.png">
 
-   [![Contêiner criado](https://github.com/joycequoos/Docker_Containers/raw/main/img/03_Container_Criado.png)](https://github.com/joycequoos/Docker_Containers/blob/main/img/03_Container_Criado.png)
+### 03. Criando um docker compose file
 
-## Verificando o log de eventos
+03.01 - Renomear o docker-compose para teste do projeto Netflix
 
-1. Opções disponíveis para analisar logs de contêineres.
+<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/06_Renomear_Docker_Compose.png">
 
-   [![Logs de contêineres](https://github.com/joycequoos/Docker_Containers/raw/main/img/04_Logs_Containers.png)](https://github.com/joycequoos/Docker_Containers/blob/main/img/04_Logs_Containers.png)
+- O Docker só realiza a leitura de docker-compose mesmo quando a extensão é .yaml
 
-2. Usando a opção `-f` para acompanhar os logs em tempo real.
+03.02 - Criando o arquivo docker-compose.yml, para fazermos a construção do 0, entendendo o passo a passo.
 
-   [![docker logs -f](https://github.com/joycequoos/Docker_Containers/raw/main/img/05_docker_logs_F.png)](https://github.com/joycequoos/Docker_Containers/blob/main/img/05_docker_logs_F.png)
+<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/07_Docker_Compose_yml.png">
 
-3. Usando o timestamp para verificar os logs.
+03.03 - Primeiro passo incluir a versão do docker compose file, para verificar a mais recente acessar a documentação:
 
-   [![docker logs -t](https://github.com/joycequoos/Docker_Containers/raw/main/img/06_docker_logs_t.png)](https://github.com/joycequoos/Docker_Containers/blob/main/img/06_docker_logs_t.png)
+https://docs.docker.com/compose/compose-file/
 
-## Publicando portas de acesso
+- Passo a passo do Docker-Compose
 
-1. Mapeando portas — tudo que chegar na porta 80 do computador será redirecionado para a porta 3000 do Docker.
+<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/08_Criando_Docker_Compose.png">
 
-   [![Mapeando portas](https://github.com/joycequoos/Docker_Containers/raw/main/img/07_Mapeando_Portas.png)](https://github.com/joycequoos/Docker_Containers/blob/main/img/07_Mapeando_Portas.png)
+https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/docker-compose/docker-compose.yml
 
-2. Aplicação em execução.
+### 4 - Rodando e parando o docker compose
 
-   [![Acessando aplicação](https://github.com/joycequoos/Docker_Containers/raw/main/img/08_Acessando_Aplicacao.png)](https://github.com/joycequoos/Docker_Containers/blob/main/img/08_Acessando_Aplicacao.png)
+4.1 - Subindo o conteiner
 
-3. Contêiner criado com o nome incluído.
+docker-compose up -d
 
-   [![Contêiner com mapeamento de portas](https://github.com/joycequoos/Docker_Containers/raw/main/img/09_App_Map_Ports.png)](https://github.com/joycequoos/Docker_Containers/blob/main/img/09_App_Map_Ports.png)
+4.2 - Parando o conteiner
 
-4. Verificando as portas do contêiner por comando.
-
-   [![docker ps com mapeamento de portas](https://github.com/joycequoos/Docker_Containers/raw/main/img/10_Docker_ps_MapPorts.png)](https://github.com/joycequoos/Docker_Containers/blob/main/img/10_Docker_ps_MapPorts.png)
-
-## Executando comandos em contêineres
-
-Verificando os arquivos dentro do contêiner, a partir do terminal da máquina:
-
-[![Comando ls dentro do contêiner](https://github.com/joycequoos/Docker_Containers/raw/main/img/11_Comandos_ls.png)](https://github.com/joycequoos/Docker_Containers/blob/main/img/11_Comandos_ls.png)
-
-> **Observação:** sempre usar `docker exec <nome_do_conteiner> <comando>`.
-
-## Iniciando e parando contêineres
-
-1. Parando um contêiner que está em execução.
-
-   [![docker stop](https://github.com/joycequoos/Docker_Containers/raw/main/img/12_Docker_Stop.png)](https://github.com/joycequoos/Docker_Containers/blob/main/img/12_Docker_Stop.png)
-
-2. Iniciando um contêiner que está parado.
-
-   [![docker start](https://github.com/joycequoos/Docker_Containers/raw/main/img/13_Docker_Start.png)](https://github.com/joycequoos/Docker_Containers/blob/main/img/13_Docker_Start.png)
-
-## Removendo contêineres
-
-[![docker rm](https://github.com/joycequoos/Docker_Containers/raw/main/img/14_Docker_Rm.png)](https://github.com/joycequoos/Docker_Containers/blob/main/img/14_Docker_Rm.png)
-
-## Próximos passos
-
-- Praticar `docker exec -it <nome_do_conteiner> sh` para abrir um shell interativo dentro do contêiner.
-- Explorar `docker inspect` para ver detalhes completos de configuração de um contêiner.
-- Automatizar a limpeza de contêineres parados com `docker container prune`.
-- Testar volumes (`-v`) para persistir dados entre reinícios de contêiner.
+docker-compose down
