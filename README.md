@@ -1,55 +1,78 @@
 # Docker Compose
 
-Docker Compose é uma ferramenta que facilita a definição e o gerenciamento de ambientes de conteineres Docker. Ele permite que você defina e configure um aplicativo multi-contêiner em um arquivo YAML ('docker-compose.yml'), especificando os serviços, redes e volumes necessários para sua aplicação. Com um único comando ('docker-compose up'), você pode iniciar e orquestrar todos os contêineres definidos no arquivo, simplicando o desenvolvimento e a implatação de aplicativos complexos.
+[← Voltar a Docker](https://github.com/joycequoos/Docker/blob/main/README.md)
 
-- Verificando a versão do docker compose na maquina via prompt de comando.
+Docker Compose é uma ferramenta que facilita a definição e o gerenciamento de ambientes multi-contêiner. Com um arquivo YAML (`docker-compose.yml`) é possível especificar serviços, redes e volumes de uma aplicação inteira e, com um único comando (`docker-compose up`), iniciar e orquestrar todos os contêineres definidos — simplificando o desenvolvimento e a implantação de aplicações complexas.
 
-<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/01_Verificar_Docker_Version.png">
+## Índice
 
-### 01. Limpando a maquina local
+- [Verificando a versão instalada](#verificando-a-versão-instalada)
+- [Limpando a máquina local](#limpando-a-máquina-local)
+- [Download do projeto Netflix](#download-do-projeto-netflix)
+- [Criando um docker-compose file](#criando-um-docker-compose-file)
+- [Rodando e parando o Docker Compose](#rodando-e-parando-o-docker-compose)
+- [Próximos passos](#próximos-passos)
 
-<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/02_Limpeza_Geral.png">
+---
 
-### 02. Download projeto Netflix
+## Verificando a versão instalada
 
-- O docker compose é um arquivo que contem as informações de todos os conteiners que vão subir, onde vamos criar um conteiner para backend, um segundo conteiner para frontend e um terceiro conteiner para Banco de Dados.
+Verificar a versão do Docker Compose na máquina via prompt de comando:
 
-<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/03_Compose_Back_Front.png">
+[![Verificar versão do Docker Compose](https://github.com/joycequoos/Docker_Docker_Compose/raw/main/img/01_Verificar_Docker_Version.png)](https://github.com/joycequoos/Docker_Docker_Compose/blob/main/img/01_Verificar_Docker_Version.png)
 
-<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/04_Terceiro_Conteiner.png">
+## Limpando a máquina local
 
-02.01 Rodando o projeto Netflix, acessar o diretorio do projeto netflix pelo terminal, e colocar o comando docker-compose up
+[![Limpeza geral](https://github.com/joycequoos/Docker_Docker_Compose/raw/main/img/02_Limpeza_Geral.png)](https://github.com/joycequoos/Docker_Docker_Compose/blob/main/img/02_Limpeza_Geral.png)
 
-<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/05_Docker_Compose_Up.png">
+## Download do projeto Netflix
 
-### 03. Criando um docker compose file
+O `docker-compose.yml` é um arquivo que contém as informações de todos os contêineres que vão subir. Neste projeto, serão criados três contêineres: um para o backend, um para o frontend e um para o banco de dados.
 
-03.01 - Renomear o docker-compose para teste do projeto Netflix
+[![Compose backend e frontend](https://github.com/joycequoos/Docker_Docker_Compose/raw/main/img/03_Compose_Back_Front.png)](https://github.com/joycequoos/Docker_Docker_Compose/blob/main/img/03_Compose_Back_Front.png)
 
-<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/06_Renomear_Docker_Compose.png">
+[![Terceiro contêiner](https://github.com/joycequoos/Docker_Docker_Compose/raw/main/img/04_Terceiro_Conteiner.png)](https://github.com/joycequoos/Docker_Docker_Compose/blob/main/img/04_Terceiro_Conteiner.png)
 
-- O Docker só realiza a leitura de docker-compose mesmo quando a extensão é .yaml
+Para rodar o projeto Netflix, acessar o diretório do projeto pelo terminal e executar:
 
-03.02 - Criando o arquivo docker-compose.yml, para fazermos a construção do 0, entendendo o passo a passo.
+```
+docker-compose up
+```
 
-<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/07_Docker_Compose_yml.png">
+[![docker-compose up](https://github.com/joycequoos/Docker_Docker_Compose/raw/main/img/05_Docker_Compose_Up.png)](https://github.com/joycequoos/Docker_Docker_Compose/blob/main/img/05_Docker_Compose_Up.png)
 
-03.03 - Primeiro passo incluir a versão do docker compose file, para verificar a mais recente acessar a documentação:
+## Criando um docker-compose file
 
-https://docs.docker.com/compose/compose-file/
+1. Renomear o `docker-compose` de teste do projeto Netflix.
 
-- Passo a passo do Docker-Compose
+   [![Renomear docker-compose](https://github.com/joycequoos/Docker_Docker_Compose/raw/main/img/06_Renomear_Docker_Compose.png)](https://github.com/joycequoos/Docker_Docker_Compose/blob/main/img/06_Renomear_Docker_Compose.png)
 
-<img src="https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/img/08_Criando_Docker_Compose.png">
+   > O Docker só faz a leitura do `docker-compose` mesmo quando a extensão é `.yaml`.
 
-https://github.com/JosiTubaroski/Docker_Docker_Compose/blob/main/docker-compose/docker-compose.yml
+2. Criar o arquivo `docker-compose.yml` do zero, entendendo o passo a passo.
 
-### 4 - Rodando e parando o docker compose
+   [![Criando docker-compose.yml](https://github.com/joycequoos/Docker_Docker_Compose/raw/main/img/07_Docker_Compose_yml.png)](https://github.com/joycequoos/Docker_Docker_Compose/blob/main/img/07_Docker_Compose_yml.png)
 
-4.1 - Subindo o conteiner
+3. Incluir a versão do Docker Compose file. Para verificar a versão mais recente, acessar a documentação oficial:
 
-docker-compose up -d
+   <https://docs.docker.com/compose/compose-file/>
 
-4.2 - Parando o conteiner
+   Passo a passo completo do `docker-compose.yml`:
 
-docker-compose down
+   [![Passo a passo do docker-compose](https://github.com/joycequoos/Docker_Docker_Compose/raw/main/img/08_Criando_Docker_Compose.png)](https://github.com/joycequoos/Docker_Docker_Compose/blob/main/img/08_Criando_Docker_Compose.png)
+
+   Arquivo de exemplo completo: [`docker-compose.yml`](https://github.com/joycequoos/Docker_Docker_Compose/blob/main/docker-compose/docker-compose.yml)
+
+## Rodando e parando o Docker Compose
+
+| Ação | Comando |
+| --- | --- |
+| Subir os contêineres em background | `docker-compose up -d` |
+| Parar e remover os contêineres | `docker-compose down` |
+
+## Próximos passos
+
+- Adicionar variáveis de ambiente via arquivo `.env` referenciado no `docker-compose.yml`.
+- Configurar volumes nomeados para persistir os dados do banco entre execuções.
+- Explorar `depends_on` e healthchecks para controlar a ordem de inicialização dos serviços.
+- Documentar como escalar um serviço específico com `docker-compose up --scale`.
